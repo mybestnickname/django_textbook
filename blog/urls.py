@@ -9,5 +9,5 @@ urlpatterns = [
     url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit, name='post_edit'),
     url(r'^post/(?P<pk>\d+)/remove/$', views.post_remove, name='post_remove'),
     url(r'^accounts/login/$', auth_views.LoginView.as_view(), name='login'),
-    url(r'^accounts/logout/$', auth_views.LogoutView.as_view(template_name='registration/logged_out.html'), name='logout'),
+    url(r'^accounts/logout/$', auth_views.LogoutView.as_view(redirect_field_name = 'registration/logged_out.html'), name='logout'),
 ]
