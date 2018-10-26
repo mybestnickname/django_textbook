@@ -24,7 +24,7 @@
     <div class="comment">
         <div class="date">
             {{ comment.created_date }}
-            {% if not comment.approved_comment %}
+            {% if not comment.approved_comment and user.username == 'admin' %}
                 <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
                 <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
             {% endif %}
@@ -36,3 +36,4 @@
 {% empty %}
     <p>No comments here yet :(</p>
 {% endfor %}
+{% endblock %}
